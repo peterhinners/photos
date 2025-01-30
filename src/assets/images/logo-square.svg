@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="206" height="55" viewBox="0 0 206 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>LT Square</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+      <g id="Group">
+        <!-- The "LT" inside the square -->
+        <polygon class="fill" id="Fill-1122" fill="#FFFFFF" fill-rule="nonzero" points="13.1716 16.271 13.1716 37.771 30.2216 37.771 30.2216 38.511 12.4306 38.511 12.4306 16.271"></polygon>
+        <polygon id="Fill-1123" class="fill" fill="#FFFFFF" fill-rule="nonzero" points="36.8689 18.9912 36.8689 38.5612 34.0549 38.5612 34.0549 18.9912 26.7959 18.9912 26.7959 16.1772 44.1279 16.1772 44.1279 18.9912"></polygon>
+        
+        <!-- The square border -->
+        <polyline class="stroke lt-border" id="polyline" stroke="#FFFFFF" stroke-width="5" points="52.7756383 28.167413 52.7756383 2.58437462 2.65558906 2.58437462 2.65558906 52.3003964 49.7166378 52.3003964"></polyline>
+      </g>
+    </g>
+</svg>

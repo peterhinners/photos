@@ -1,0 +1,7 @@
+{
+  "/albums": {
+    "target": "https://showcase.leantechniques.com",
+    "secure": true,
+    "changeOrigin": true
+  }
+} 

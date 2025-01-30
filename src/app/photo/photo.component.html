@@ -1,0 +1,11 @@
+<div class="modal-backdrop" (click)="close.emit()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="close.emit()">✕</button>
+      <img [src]="photo.url" [alt]="photo.title">
+      <div class="photo-details">
+        <h2>{{photo.title}}</h2>
+        <p>Album {{photo.albumId}}</p>
+        <p>Photo ID: {{photo.photoId}}</p>
+      </div>
+    </div>
+  </div>

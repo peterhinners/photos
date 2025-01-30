@@ -1,0 +1,83 @@
+<div class="header">
+  <div class="logo-container">
+    <img src="/assets/images/logo-square.svg" alt="Logo Square" class="logo-square">
+    <img src="/assets/images/logo-text.svg" alt="Lean TECHniques" class="logo-text"
+         [class.loading]="isLoading"
+         [class.loaded]="!isLoading">
+  </div>
+</div>
+
+<div class="albums-container">
+
+@if (!isLoading) {
+  <div class="search-wrapper">
+    <div class="search-container">
+      <div class="input-wrapper">
+        <input 
+        type="text" 
+        [formControl]="searchControl"
+        placeholder="Search photos by title, album ID, or photo ID..."
+        class="search-input"
+        [class.invalid]="searchControl.invalid && searchControl.dirty"
+        aria-label="Search photos"
+        #searchInput
+      >
+      @if (searchControl.value) {
+        <button 
+          class="clear-button" 
+          (click)="clearSearch(searchInput)"
+          aria-label="Clear search"
+        >
+          ✕
+        </button>
+      }
+    </div>
+    @if (searchControl.invalid && searchControl.dirty) {
+      <div class="error-message" role="alert">
+        {{ searchError }}
+      </div>
+    }
+    </div>
+  </div>
+
+  @if (filteredAlbums.length > 0) {
+    @for (album of filteredAlbums; track album.albumId) {
+      <div class="album-section">
+        <h3>Album {{album.albumId}}</h3>
+        <div class="photo-grid">
+          @for (photo of album.photos; track photo.photoId) {
+            <div class="photo-card" 
+                 (click)="showPhoto(photo)" 
+                 role="button" 
+                 tabindex="0">
+              <img 
+                [src]="photo.url" 
+                [alt]="photo.title"
+              >
+              <p class="photo-title">{{photo.title}}</p>
+              <p class="photo-id">Photo ID: {{photo.photoId}}</p>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  } @else {
+    @if (filteredAlbums.length === 0 && !isLoading && searchControl.value) {
+      <div class="loading">
+        <p>No photos found matching your search</p>
+      </div>
+    }
+  }
+} @else {
+  <div class="loading">
+    <p class="loading-text">Loading albums</p>
+  </div>
+}
+
+@if (selectedPhoto) {
+  <app-photo 
+    [photo]="selectedPhoto" 
+    (close)="selectedPhoto = null"
+  />
+}
+</div>
